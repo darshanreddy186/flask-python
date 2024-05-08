@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Expenses</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Search Expenses</h1>
+        <form action="/search" method="GET">
+            <input type="text" name="query" placeholder="Search by category">
+            <button type="submit">Search</button>
+        </form>
+        <hr>
+        <h2>Search Results</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for expense in results %}
+                <tr>
+                    <td>{{ expense[1] }}</td>
+                    <td>${{ expense[2] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
